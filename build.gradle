@@ -1,0 +1,36 @@
+group 'com.xiaoyi'
+version '1.0-SNAPSHOT'
+
+subprojects {
+//    添加插件
+    apply plugin: 'java'
+//    基本JDK配置
+    sourceCompatibility = 17
+    targetCompatibility = 17
+
+    compileJava.options.encoding "UTF-8"
+    compileTestJava.options.encoding "UTF-8"
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    group 'com.xiaoyi'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.4'
+        implementation 'org.projectlombok:lombok:1.18.24'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

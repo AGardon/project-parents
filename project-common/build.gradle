@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.xiaoyi'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework', name: 'spring-web', version: '5.3.23'
+    implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.15'
+}
+
+test {
+    useJUnitPlatform()
+}

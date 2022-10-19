@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'com.xiaoyi'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":project-common")
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.4'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+    implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+    implementation 'org.jetbrains:annotations:20.1.0'
+    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+}
+
+test {
+    useJUnitPlatform()
+}
