@@ -3,10 +3,9 @@ package com.xiaoyi.po;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 /**
@@ -32,6 +31,14 @@ public class SysUser {
   private String realName;
   private String password;
   private String salt;
+
+  @OneToOne
+  @JoinColumn(name = "role_ID")
+  private SysRole role;
+
+  @OneToMany(fetch = FetchType.EAGER)
+  @JoinColumn(name = "authority_ID")
+  private Collection<Authority> authorities = new ArrayList<>();
 
   @Override
   public boolean equals(Object o) {

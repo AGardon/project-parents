@@ -16,7 +16,7 @@ import javax.validation.Valid;
  * @date 2022/10/18 17:30
  * @phone 18318436514
  * @email w2603494062@gmail.com
- * @github https://github.com/AGarden
+ * @github <a href="https://github.com/AGarden">...</a>
  */
 public interface UserService {
 
