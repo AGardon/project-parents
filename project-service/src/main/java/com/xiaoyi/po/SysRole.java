@@ -7,6 +7,8 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -14,13 +16,15 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Table(name = "sys_role")
 public class SysRole {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long roleId;
 
   private String roleName;
+
+  @OneToMany(fetch = FetchType.EAGER)
+  private Collection<Authority> authorities = new ArrayList<>();
 
   @Override
   public boolean equals(Object o) {

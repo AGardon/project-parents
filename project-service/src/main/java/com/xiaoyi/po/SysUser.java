@@ -4,8 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Objects;
 
 /**
@@ -14,7 +12,7 @@ import java.util.Objects;
  * @date 2022/10/18 17:05
  * @phone 18318436514
  * @email w2603494062@gmail.com
- * @github https://github.com/AGarden
+ * @github <a href="https://github.com/AGarden">...</a>
  */
 @Entity
 @Getter
@@ -32,13 +30,8 @@ public class SysUser {
   private String password;
   private String salt;
 
-  @OneToOne
-  @JoinColumn(name = "role_ID")
+  @ManyToOne(fetch = FetchType.EAGER)
   private SysRole role;
-
-  @OneToMany(fetch = FetchType.EAGER)
-  @JoinColumn(name = "authority_ID")
-  private Collection<Authority> authorities = new ArrayList<>();
 
   @Override
   public boolean equals(Object o) {
